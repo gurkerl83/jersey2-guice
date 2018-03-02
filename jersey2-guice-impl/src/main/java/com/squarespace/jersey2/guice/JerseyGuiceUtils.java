@@ -42,6 +42,7 @@ import org.glassfish.hk2.api.ServiceLocatorFactory;
 import org.glassfish.hk2.extension.ServiceLocatorGenerator;
 import org.glassfish.hk2.utilities.Binder;
 import org.glassfish.hk2.utilities.BuilderHelper;
+import org.glassfish.jersey.internal.inject.AbstractBinder;
 import org.glassfish.jersey.message.internal.MessagingBinders;
 import org.jvnet.hk2.external.generator.ServiceLocatorGeneratorImpl;
 import org.jvnet.hk2.internal.DefaultClassAnalyzer;
@@ -328,11 +329,16 @@ public class JerseyGuiceUtils {
     return locator;
   }
   
-  /**
+  private static void bind(ServiceLocator locator, DynamicConfiguration dc, Binder binder) {
+	  locator.inject(binder);
+	  binder.bind(dc);
+  }
+
+/**
    * @see ServiceLocator#inject(Object)
    * @see Binder#bind(DynamicConfiguration)
    */
-  private static void bind(ServiceLocator locator, DynamicConfiguration dc, Binder binder) {
+  private static void bind(ServiceLocator locator, DynamicConfiguration dc, AbstractBinder binder) {
     locator.inject(binder);
     binder.bind(dc);
   }

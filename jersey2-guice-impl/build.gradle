@@ -18,6 +18,8 @@ dependencies {
     exclude group: 'org.glassfish.hk2.external', module: 'javax.inject'
   }
   
+   compile "org.glassfish.jersey.inject:jersey-hk2:${project.jerseyVersion}"
+  
   provided 'javax.servlet:javax.servlet-api:3.1.0'
   
   testCompile 'org.eclipse.jetty:jetty-servlet:9.2.9.v20150224'

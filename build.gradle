@@ -38,9 +38,9 @@ allprojects {
 subprojects {
 
   project.ext {
-    guiceVersion = '4.0'
-    jerseyVersion = '2.22.2'
-    hk2Version = '2.4.0-b34'
+    guiceVersion = '4.2.0'
+    jerseyVersion = '2.26'
+    hk2Version = '2.5.0-b42'
   }
 
   // Telling Eclipse about the provided scope
